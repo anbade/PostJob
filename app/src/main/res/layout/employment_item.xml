@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="0dp"
+        android:layout_weight=".70"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:background="#9ba5fff3"
+        android:shadowColor="#d8ddff"
+        android:singleLine="false" />
+
+    <TextView
+        android:id="@+id/dateTextView"
+        android:layout_width="0dp"
+        android:layout_weight=".30"
+        android:layout_height="fill_parent"
+        android:text="New Text"
+        android:background="#9bfff3a5"
+        android:shadowColor="#d8ddff" />
+</LinearLayout>

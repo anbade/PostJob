@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">SearchWork</string>
+
+    <!-- Menu -->
+    <string name="sync_item">Syncronize</string>
+    <string name="post_item">Post New Job</string>
+
+    <!-- Layout to post new job-->
+    <string name="post_name">Name</string>
+    <string name="post_description">Description</string>
+    <string name="post_contact">Contact</string>
+    <string name="post_button">Post!</string>
+</resources>
