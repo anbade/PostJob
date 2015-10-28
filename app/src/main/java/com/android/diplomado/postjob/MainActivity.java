@@ -13,6 +13,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.android.diplomado.postjob.Data.JobsPostDbHelper;
@@ -27,7 +29,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 
 import static com.android.diplomado.postjob.Data.JobPostDbContract.*;
 
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     ListView listView;
     CursorAdapterMine adapter;
     private final static int JOB_POST_LOADER_ID = 1;
+    private final static String DESCRIPTION = "DESCRIPTION";
+    private final static String TITLE = "TITLE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +52,29 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         listView = (ListView)findViewById(R.id.listView);
 
         /* Bind adapater to my ListView */
-        ArrayList<Employment> elementsList = new ArrayList<>();
         adapter = new CursorAdapterMine(this, null , 0);
         listView.setAdapter(adapter);
 
         getSupportLoaderManager().initLoader(JOB_POST_LOADER_ID, null, this);
+
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(MainActivity.this, ReadJob.class);
+                Cursor cursor = (Cursor)adapter.getItem(position);
+                String title = cursor.getString(cursor.getColumnIndex(JobPost.TITLE_COLUMN));
+                String date = cursor.getString(cursor.getColumnIndex(JobPost.POSTED_DATE_COLUMN));
+                String description = cursor.getString(cursor.getColumnIndex(JobPost.DESCRIPTION_COLUMN));
+                System.out.println(cursor + " -- " +title);
+                intent.putExtra(DESCRIPTION, description);
+                intent.putExtra(TITLE, title);
+                startActivity(intent);
+            }
+        });
+
+        /* Syncronice data when user enter this activity */
+        syncData();
     }
 
     @Override
@@ -142,7 +163,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     SQLiteDatabase db = dbHelper.getWritableDatabase();
                     for (int i = 0, count = new_array.length(); i < count; i++) {
                         try {
-                            Employment employment = new Employment();
                             JSONObject jsonObject = new_array.getJSONObject(i);
                             String title = jsonObject.getString("title").toString();
                             String date = jsonObject.getString("posted_date").toString();

@@ -3,51 +3,76 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/fab_margin"
-    android:paddingRight="@dimen/fab_margin">
+    android:gravity="left">
 
-    <TextView
-        android:layout_marginTop="@dimen/fab_margin"
+    <android.support.v7.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar_read"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#8c82d8ff"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <ImageButton android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:src="@drawable/abc_ab_share_pack_mtrl_alpha" />
+
+</android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/post_name"/>
+        android:paddingLeft="@dimen/fab_margin"
+        android:paddingRight="@dimen/fab_margin">
 
-    <EditText
-        android:id="@+id/name_post"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text"/>
+        <TextView
+            android:layout_marginTop="@dimen/fab_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/post_name"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/post_description"
-        android:layout_marginTop="@dimen/fab_margin" />
+        <EditText
+            android:id="@+id/name_post"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"/>
 
-    <EditText
-        android:id="@+id/description_post"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:lines="5"
-        android:linksClickable="true" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/post_description"
+            android:layout_marginTop="@dimen/fab_margin" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/post_contact"
-        android:layout_marginTop="@dimen/fab_margin"/>
+        <EditText
+            android:id="@+id/description_post"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="5"
+            android:linksClickable="true" />
 
-    <EditText
-        android:id="@+id/contact_post"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="number" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/post_contact"
+            android:layout_marginTop="@dimen/fab_margin"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/fab_margin"
-        android:text="@string/post_button"
-        android:onClick="onPost"/>
+        <EditText
+            android:id="@+id/contact_post"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:text="@string/post_button"
+            android:onClick="onPost"/>
+
+    </LinearLayout>
 
 </LinearLayout>
