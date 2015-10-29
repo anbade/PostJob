@@ -39,12 +39,16 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private final static int JOB_POST_LOADER_ID = 1;
     private final static String DESCRIPTION = "DESCRIPTION";
     private final static String TITLE = "TITLE";
+    private final static String ID = "ID";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+
+        String locale = getResources().getConfiguration().locale.getDisplayName();
+        System.out.println("LANGUAGE---> "+locale);
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
@@ -62,19 +66,18 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MainActivity.this, ReadJob.class);
-                Cursor cursor = (Cursor)adapter.getItem(position);
+                Cursor cursor = (Cursor) adapter.getItem(position);
+                int idJob = cursor.getInt(cursor.getColumnIndex(JobPost._ID));
                 String title = cursor.getString(cursor.getColumnIndex(JobPost.TITLE_COLUMN));
-                String date = cursor.getString(cursor.getColumnIndex(JobPost.POSTED_DATE_COLUMN));
                 String description = cursor.getString(cursor.getColumnIndex(JobPost.DESCRIPTION_COLUMN));
-                System.out.println(cursor + " -- " +title);
+                intent.putExtra(ID, idJob);
                 intent.putExtra(DESCRIPTION, description);
                 intent.putExtra(TITLE, title);
                 startActivity(intent);
             }
         });
 
-        /* Syncronice data when user enter this activity */
-        syncData();
+        //syncData();
     }
 
     @Override
@@ -202,10 +205,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
                     // tv.setText("error2");
                 }
-
-
-
-
             } catch (IOException e) {
                 e.printStackTrace();
             } finally {

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
@@ -10,8 +12,10 @@
         android:layout_height="wrap_content"
         android:text="New Text"
         android:background="#9ba5fff3"
-        android:shadowColor="#d8ddff"
-        android:singleLine="false" />
+        android:paddingLeft="@dimen/fab_margin"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:textSize="12sp"/>
 
     <TextView
         android:id="@+id/dateTextView"
@@ -20,5 +24,7 @@
         android:layout_height="fill_parent"
         android:text="New Text"
         android:background="#9bfff3a5"
-        android:shadowColor="#d8ddff" />
+        android:shadowColor="#d8ddff"
+        android:padding="5dp"
+        android:textSize="10sp"/>
 </LinearLayout>

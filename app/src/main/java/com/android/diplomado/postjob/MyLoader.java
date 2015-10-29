@@ -23,7 +23,6 @@ public class MyLoader extends SimpleCursorLoader {
 
     @Override
     public Cursor loadInBackground() {
-        ArrayList<String> result = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String[] columns = new String[]{JobPostDbContract.JobPost._ID, JobPostDbContract.JobPost.TITLE_COLUMN, JobPostDbContract.JobPost.POSTED_DATE_COLUMN, JobPostDbContract.JobPost.DESCRIPTION_COLUMN};
         Cursor c = db.query(JobPostDbContract.JobPost.TABLE_NAME, columns, null, null, null, null, null);

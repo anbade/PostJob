@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,42 +34,15 @@ public class PostJob extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.post_new_job);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_read);
-        toolbar.setLogo(R.mipmap.ic_launcher);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         name = (EditText)findViewById(R.id.name_post);
         description = (EditText)findViewById(R.id.description_post);
         contact = (EditText)findViewById(R.id.contact_post);
 
-        View logoView = getToolbarLogoIcon(toolbar);
-        logoView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_BACK));
-                dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_BACK));
-            }
-        });
-
-    }
-
-    static View getToolbarLogoIcon(Toolbar toolbar){
-        //check if contentDescription previously was set
-        boolean hadContentDescription = android.text.TextUtils.isEmpty(toolbar.getLogoDescription());
-        String contentDescription = String.valueOf(!hadContentDescription ? toolbar.getLogoDescription() : "logoContentDescription");
-        toolbar.setLogoDescription(contentDescription);
-        ArrayList<View> potentialViews = new ArrayList<View>();
-        //find the view based on it's content description, set programatically or with android:contentDescription
-        toolbar.findViewsWithText(potentialViews, contentDescription, View.FIND_VIEWS_WITH_CONTENT_DESCRIPTION);
-        //Nav icon is always instantiated at this point because calling setLogoDescription ensures its existence
-        View logoIcon = null;
-        if(potentialViews.size() > 0){
-            logoIcon = potentialViews.get(0);
-        }
-        //Clear content description if not previously present
-        if(hadContentDescription)
-            toolbar.setLogoDescription(null);
-        return logoIcon;
     }
 
     public void onPost(View view) {
@@ -117,6 +92,7 @@ public class PostJob extends AppCompatActivity {
                 printout.write(data);
                 printout.flush();
 
+                System.out.println(urlConnection.getResponseCode());
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -125,7 +101,6 @@ public class PostJob extends AppCompatActivity {
             } finally {
                 if(printout != null){
                     try {
-                        int response = urlConnection.getResponseCode();
                         printout.close ();
                     } catch (IOException e) {
                         e.printStackTrace();

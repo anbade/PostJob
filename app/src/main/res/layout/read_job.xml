@@ -1,53 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#ffffff">
-
-    <android.support.v7.widget.Toolbar
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/toolbar_read"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="#8c82d8ff"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginLeft="@dimen/fab_margin"
-        android:layout_marginRight="@dimen/fab_margin">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff">
 
-        <TextView
-            android:id="@+id/post_title"
+        <include layout="@layout/my_toolbar" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="30dp"
-            android:text="@string/abc_action_bar_up_description"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="@dimen/fab_margin"/>
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:layout_marginRight="@dimen/fab_margin">
 
-        <TextView
-            android:id="@+id/post_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/abc_action_bar_up_description"
-            android:layout_marginTop="@dimen/fab_margin"/>
+            <TextView
+                android:id="@+id/post_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:text="@string/abc_action_bar_up_description"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="@dimen/fab_margin"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/fab_margin"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:text="@string/contact_title"/>
+            <TextView
+                android:id="@+id/post_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/abc_action_bar_up_description"
+                android:layout_marginTop="@dimen/fab_margin"/>
 
+            <TextView
+                android:id="@+id/contacts_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/fab_margin"
+                android:textStyle="bold"
+                android:text="@string/contact_title"
+                android:visibility="gone"/>
+
+            <LinearLayout
+                android:id="@+id/layout_numbers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/fab_margin">
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</ScrollView>
