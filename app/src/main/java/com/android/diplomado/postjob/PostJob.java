@@ -35,6 +35,7 @@ public class PostJob extends AppCompatActivity {
         setContentView(R.layout.post_new_job);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        toolbar.setTitle(R.string.post_item);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

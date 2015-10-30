@@ -34,7 +34,7 @@ public class ReadJob extends AppCompatActivity {
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        toolbar.setTitle(title);
+        toolbar.setTitle(R.string.title_activity_read_job);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
