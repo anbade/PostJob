@@ -51,8 +51,8 @@ public class PostJob extends AppCompatActivity {
         namePost = name.getText().toString();
         descriptionPost = description.getText().toString();
         contactPost = contact.getText().toString();
-        SetDataAsyncTask asyncTask = new SetDataAsyncTask();
-        asyncTask.execute();
+        //SetDataAsyncTask asyncTask = new SetDataAsyncTask();
+        //asyncTask.execute();
     }
 
     private class SetDataAsyncTask extends AsyncTask<Void, Void, Void> {
@@ -107,10 +107,19 @@ public class PostJob extends AppCompatActivity {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-
                 }
             }
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            CharSequence text = getText(R.string.message_post);
+            int duration = Toast.LENGTH_SHORT;
+            Toast.makeText(getApplicationContext(), text, duration).show();
+            name.setText("");
+            description.setText("");
+            contact.setText("");
         }
     }
 }

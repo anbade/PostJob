@@ -11,6 +11,7 @@
     <string name="post_contact">Contact</string>
     <string name="post_button">Post!</string>
     <string name="title_activity_read_job">Job Details</string>
+    <string name="message_post">Your Post was added succesfully</string>
 
     <!-- Layout to read a job-->
     <string name="contact_title">Contacts</string>
