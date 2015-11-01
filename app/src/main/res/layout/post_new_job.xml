@@ -52,21 +52,31 @@
                 android:text="@string/post_contact"
                 android:layout_marginTop="@dimen/fab_margin"/>
 
-            <EditText
-                android:id="@+id/contact_post"
+            <LinearLayout
+                android:id="@+id/main_layout"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:layout_height="wrap_content">
 
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/fab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:clickable="true"
-                android:src="@drawable/my_button"
-                app:layout_anchor="@id/viewA"
-                app:layout_anchorGravity="bottom|right|end" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/contact_post"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:layout_weight="2"/>
+                    <Button
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
+                        android:background="@android:drawable/ic_input_add"
+                        android:layout_weight="1"
+                        android:onClick="addContactView"/>
+                </LinearLayout>
+            </LinearLayout>
 
             <Button
                 android:id="@+id/button_post"
@@ -79,7 +89,6 @@
                 android:background="@drawable/my_button"
                 android:textStyle="bold"
                 android:textColor="@color/secondaryText"/>
-
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

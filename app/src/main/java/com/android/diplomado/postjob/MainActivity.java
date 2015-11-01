@@ -47,9 +47,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         setContentView(R.layout.activity_main);
 
-        String locale = getResources().getConfiguration().locale.getDisplayName();
-        System.out.println("LANGUAGE---> "+locale);
-
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 

@@ -1,20 +1,22 @@
 <resources>
-<string name="app_name">Encuentra Trabajo</string>
+    <string name="app_name">Encuentra Trabajo</string>
 
-<!-- Menu -->
-<string name="sync_item">Sincronizar</string>
-<string name="post_item">Postear Trabajo</string>
+    <!-- Menu -->
+    <string name="sync_item">Sincronizar</string>
+    <string name="post_item">Postear Trabajo</string>
 
-<!-- Layout to post new job-->
-<string name="post_name">Nombre</string>
-<string name="post_description">Descripcion</string>
-<string name="post_contact">Contacto</string>
-<string name="post_button">Postear!</string>
-<string name="title_activity_read_job">Detalle Trabajo</string>
-<string name="message_post">Su post fue agregado exitosamente</string>
+    <!-- Layout to post new job-->
+    <string name="post_name">Nombre</string>
+    <string name="post_description">Descripcion</string>
+    <string name="post_contact">Contacto</string>
+    <string name="post_button">Postear!</string>
+    <string name="title_activity_read_job">Detalle Trabajo</string>
+    <string name="message_post">Su post fue agregado exitosamente</string>
+    <string name="error_message_post">Hay un error en el servidor</string>
+
 
 
     <!-- Layout to read a job-->
-<string name="contact_title">Contactos</string>
+    <string name="contact_title">Contactos</string>
 
 </resources>
